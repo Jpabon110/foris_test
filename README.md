@@ -66,4 +66,4 @@ $ yarn test
 
 ### Nota
 
-Para los test, despues de colocar yarn test, seleccionar la opcion a para que corra todos los test
+Para los test, despues de colocar yarn test, seleccionar la opcion 'a' para que corra todos los test
