@@ -1,0 +1,7 @@
+Student Juan
+Student Miguel
+Student Esther
+Presence Juan 1 07:15 9:12 R100
+Presence Juan 2 10:20 11:00 R100
+Presence Miguel 3 11:21 12:58 R205
+Presence Esther 5 14:32 16:48 F505
