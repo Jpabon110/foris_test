@@ -1,6 +1,6 @@
 # App para el test en Foris
 - nodejs v8.11.3
-- react 16.12.0,
+- react 16.12.0
 
 ### Nota
 
@@ -32,7 +32,7 @@ Para los testing se realizaron al componente tableInfo que era el que reaccionab
 
 - El primer test comprueba como deberia de entrar la información, el cual es un array de objetos y se debe garantizar que todos los atributos dentro del array de objetos existan correctamente.
 
--El segundo test recibe dos parametros que son dos objetos los cuales se utilizan para comparar sus minutos y saber cual es mayor y menor de los dos, y dependiendo el resultado puede ser 1 o -1.
+- El segundo test recibe dos parametros que son dos objetos los cuales se utilizan para comparar sus minutos y saber cual es mayor y menor de los dos, y dependiendo el resultado puede ser 1 o -1.
 
 
 ### Install FrontEnd dependecies
