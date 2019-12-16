@@ -4,7 +4,7 @@
 
 ### Nota
 
-En la carpeta file_examples, estan dos archivo con la extructura de como debe ser el contenido de los archivos que soporta la app, segun los requerimientos de la prueba de foris, ademas de su respectiva extension.
+En la carpeta file_examples, estan dos archivo con la extructura de como debe ser el contenido de los archivos que soporta la app, según los requerimientos de la prueba de foris, ademas de su respectiva extension.
 
 ### Razonamiento de la aplicación
 
