@@ -1,12 +1,12 @@
 # App para el test en Foris
-- nodejs v8.11.3 "react": "^16.12.0",
+- nodejs v8.11.3
 - react 16.12.0,
 
 ### Nota
 
 En la carpeta file_examples, estan dos archivo con la extructura de como debe ser el contenido de los archivos que soporta la app, según los requerimientos de la prueba de foris, ademas de su respectiva extension.
 
-### Razonamiento de la aplicación
+### Razonamiento y toma de deciciones para la aplicación
 
 Naturalmente era necesario cargar el archivo para luego leer su contenido, sin embargo se debia interactuar su contenido siguiendo el formato de ejemplo de la prueba, el cual se tomaron los siguientes apestos:
 
@@ -26,7 +26,13 @@ Naturalmente era necesario cargar el archivo para luego leer su contenido, sin e
 
 - Para concluir el mismo array que se habia declarado de primero paso varias faces hasta que se convirtio en un array de objectos con la estructura deseada, luego se asignaba al estado de la aplicacion llamado 'studens', y en el render de la misma se le pasaba a un componente TableInfo en donde se iba a mostrar en una trabla ordenada de forma descendente por minutos.
 
+### Testing en componentes
 
+Para los testing se realizaron al componente tableInfo que era el que reaccionaba según los valores que tuviera el atributo del estado studens, estos test eran muy simples los cuales se definieron en dos los cuales estan ubicados en el archivo App.test.js en la carpeta _test_ adentro de components:
+
+- El primer test comprueba como deberia de entrar la información, el cual es un array de objetos y se debe garantizar que todos los atributos dentro del array de objetos existan correctamente.
+
+-El segundo test recibe dos parametros que son dos objetos los cuales se utilizan para comparar sus minutos y saber cual es mayor y menor de los dos, y dependiendo el resultado puede ser 1 o -1.
 
 
 ### Install FrontEnd dependecies
@@ -48,7 +54,7 @@ or Yarn:
 $ yarn start
 ```
 
-### Run test FrontEnd App
+### Run Test App
 With NPM:
 ```sh
 $ npm test

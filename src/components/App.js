@@ -20,15 +20,15 @@ class App extends Component {
 
   findElement = (name, studens) => {
     let findIt = 0;
-    if(studens.length === 0){
+    if (studens.length === 0) {
       return false;
     }
     for (let index = 0; index < studens.length; index += 1) {
       const search = studens[index];
-          if (search.name === name) {
-            
-            findIt += 1;
-          }
+      if (search.name === name) {
+
+        findIt += 1;
+      }
       if (findIt >= 1) {
         return true;
       }
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   findIndex = (name, studens) => {
-    if(studens.length === 0){
+    if (studens.length === 0) {
       return false;
     }
     for (let index = 0; index < studens.length; index += 1) {
@@ -50,51 +50,49 @@ class App extends Component {
     return false;
   }
 
-  convertTime = (hms) => {
-    const a = hms.split(':');
+  convertTime = (hhmm) => {
+    const a = hhmm.split(':');
     let minutes = ((+a[0]) * 60) + (+a[1]);
     return minutes;
   }
 
-  showFile  = () => (e) => {
-         const file = e.target.files[0];
-         const reader = new FileReader();
-         let studens = [];
-         const textFile = /text.*/;
+  showFile = () => (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    let studens = [];
+    const textFile = /text.*/;
 
-         if ((file) && (file.type.match(textFile))) {
-          this.setState({ title: 'Información cargada con exito' });
-            reader.onload = (event) => {
-              event.target.result.split('\n').map(entry => {
+    if ((file) && (file.type.match(textFile))) {
+      this.setState({ title: 'Información cargada con exito' });
+      reader.onload = (event) => {
+        event.target.result.split('\n').map(entry => {
 
-                // console.log('entry', entry);
-                const splitValidate = entry.trim().split(' ');
+          const splitValidate = entry.trim().split(' ');
 
-                
-                if (splitValidate[0] === 'Student'){
-                  if (this.findElement(splitValidate[1], studens) === false){
-                    studens.push({
-                      name: splitValidate[1],
-                      minutes: 0,
-                      days: 0
-                    });
-                  }
-                } else if (splitValidate[0] === 'Presence') {
-                  if (splitValidate[2]) {
-                    studens[this.findIndex(splitValidate[1],studens)]['days'] += 1;
-                  }
-                  if ((splitValidate[3]) && (splitValidate[4])){
-                    studens[this.findIndex(splitValidate[1],studens)]['minutes'] += (this.convertTime(splitValidate[4]) - this.convertTime(splitValidate[3]));
-                  }
-                }
+          if (splitValidate[0] === 'Student') {
+            if (!this.findElement(splitValidate[1], studens)) {
+              studens.push({
+                name: splitValidate[1],
+                minutes: 0,
+                days: 0
               });
-              this.setState({ studens });
             }
-         } else {
-           this.setState({ title: 'Porfavor el archivo debe ser en formato .txt' });
-            return;
-         }
-         reader.readAsText(file);
+          } else if (splitValidate[0] === 'Presence') {
+            if (splitValidate[2]) {
+              studens[this.findIndex(splitValidate[1], studens)]['days'] += 1;
+            }
+            if ((splitValidate[3]) && (splitValidate[4])) {
+              studens[this.findIndex(splitValidate[1], studens)]['minutes'] += (this.convertTime(splitValidate[4]) - this.convertTime(splitValidate[3]));
+            }
+          }
+        });
+        this.setState({ studens });
+      }
+    } else {
+      this.setState({ title: 'Porfavor el archivo debe ser en formato .txt' });
+      return;
+    }
+    reader.readAsText(file);
   }
 
   compare = (a, b) => {
@@ -133,7 +131,6 @@ class App extends Component {
               studens={studens}
               compare={this.compare}
              />
-
           </CardBody>
         </Card>
       </div>
@@ -141,5 +138,3 @@ class App extends Component {
   }
 }
 export default App;
-
-// render(<App />, document.getElementById('root'));

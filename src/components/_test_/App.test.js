@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import TableInfo from '../table'
@@ -19,7 +18,7 @@ describe('TableInfo', () => {
 
     });
 
-    it('Verificar valor de la funcion comparer', () => {
+    it('Verificar valor de la función comparer', () => {
 
         const studens = {name: "Marco", minutes: 142, days: 2};
 
